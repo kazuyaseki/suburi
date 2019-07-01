@@ -21,7 +21,7 @@ test('renders a number input with a label "Favorite Number"', () => {
 });
 
 test('entering an invlid value shows an error message', () => {
-  const { getByLabelText, getByTestId, rerender } = render(
+  const { getByLabelText, getByTestId, rerender, queryByTestId } = render(
     <FavoriteNumber min={1} max={9} />
   );
   const input = getByLabelText(/favorite number/i);
@@ -30,5 +30,6 @@ test('entering an invlid value shows an error message', () => {
     'The number is invalid'
   );
   rerender(<FavoriteNumber min={1} max={10} />);
-  expect(getByTestId('error-message')).toBeNull();
+  // queryByTestId だと見つからないと null を返す。
+  expect(queryByTestId('error-message')).toBeNull();
 });
