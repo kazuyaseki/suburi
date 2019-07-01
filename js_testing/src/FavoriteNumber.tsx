@@ -28,6 +28,8 @@ export default function FavoriteNumber(props: Props) {
       {isValid ? null : (
         <div data-testid="error-message">The number is invalid</div>
       )}
+
+      <p data-testid="test">test</p>
     </div>
   );
 }
